@@ -39,30 +39,3 @@ function animateText() {
 }
 
 animateText();
-
-//----//
-
-var lazyLoadElements = document.querySelectorAll(".lazy-load");
-
-var lazyLoadCallback = function(entries, observer) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      var lazyLoadElement = entry.target;
-      lazyLoadElement.src = lazyLoadElement.dataset.src;
-      lazyLoadElement.classList.remove("lazy-load");
-      observer.unobserve(lazyLoadElement);
-    }
-  });
-};
-var lazyLoadObserver = new IntersectionObserver(lazyLoadCallback, {
-  root: null, 
-  rootMargin: "0px", 
-  threshold: 0.1  
-});
-
-lazyLoadElements.forEach(function(lazyLoadElement) {
-  lazyLoadObserver.observe(lazyLoadElement);
-});
-
-
-
