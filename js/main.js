@@ -39,3 +39,4 @@ function animateText() {
 }
 
 animateText();
+
